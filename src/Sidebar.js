@@ -25,6 +25,13 @@ function Sidebar() {
                 {/* <!-- Divider --> */}
                 <hr className="sidebar-divider my-0 " />
 
+                <li className="nav-item active">
+                    <Link className="nav-link" to="/" onClick={() => {
+                      
+                    }}>
+                        <i className="fas fa-fw fa-tachometer-alt"></i>
+                        <span style={{ fontSize: "17px" }}>Home</span></Link>
+                </li>
                 {/* <!-- Nav Item - Dashboard --> */}
                 <li className="nav-item active">
                     <Link className="nav-link" to="/grocery" onClick={() => {

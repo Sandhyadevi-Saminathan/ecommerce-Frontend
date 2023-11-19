@@ -22,13 +22,14 @@ function App() {
     <div className="App">
     <BrowserRouter>
         <Routes>
-        <Route path = '/' element={<Home/>} />
+        
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path='/' element={<Portal />}>
           <Route path="sidebar" element={<Sidebar />} />
           <Route path="topbar" element={<Topbar />} />
-         
+          <Route index element={<Home />} />
+          {/* <Route path = 'home' element={<Home/>} /> */}
           <Route path = 'grocery' element={<Grocery/>} />
           <Route path = 'mobiles' element={<Mobiles/>} />
           <Route path = 'fashion' element={<Fashion/>} />
