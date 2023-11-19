@@ -1,0 +1,25 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #f0f0f0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-250px);
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .options {
+    list-style: none;
+    padding: 0;
+    display: none;
+  }
+  
+  .options.show {
+    display: block;
+  }
+  
+  .options.hide {
+    display: none;
+  }
+  

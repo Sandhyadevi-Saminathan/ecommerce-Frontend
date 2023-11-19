@@ -1,0 +1,9 @@
+.filter-icon {
+    cursor: pointer;
+    margin-left: 10px; /* Adjust the margin as needed */
+  }
+  
+  .search-filter-container {
+    display: flex;
+    align-items: center;
+  }
