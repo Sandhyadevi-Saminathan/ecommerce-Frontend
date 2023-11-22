@@ -34,7 +34,7 @@ const checkUserLogin = () => {
 
 let fetchUsers = async () => {
     try {
-        let userData = await axios.get(" http://localhost:8000/products/grocery")
+        let userData = await axios.get(" https://ecommerce-backend-xu6o.onrender.com/products/grocery")
         console.log(userData.data);
         setProducts(userData.data)
         setFilteredProducts(userData.data);

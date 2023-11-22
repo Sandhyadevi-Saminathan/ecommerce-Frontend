@@ -43,7 +43,7 @@ function Register() {
         onSubmit: async (values) => {
             try {
 
-                let userData = await axios.post("http://localhost:8000/users/register", values);
+                let userData = await axios.post("https://ecommerce-backend-xu6o.onrender.com/users/register", values);
                 window.localStorage.setItem("my_token", userData.data.token);
                 alert("Registered Successfully");
                 formik.resetForm();

@@ -33,7 +33,7 @@ function Changepassword() {
             },
             onSubmit: async (values) => {
                 try {
-                    const user = await axios.post(`http://localhost:8000/users/ChangePassword/${params.id}`, values);
+                    const user = await axios.post(`https://ecommerce-backend-xu6o.onrender.com/users/ChangePassword/${params.id}`, values);
                     console.log(user)
                     alert(user.data.message);
                     navigate('/login')

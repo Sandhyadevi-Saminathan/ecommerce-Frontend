@@ -23,7 +23,7 @@ function Verification() {
         onSubmit: async (values) => {
             setloading(true)
             try {
-                const res = await axios.post(`http://localhost:8000/users/verification/${params.id}`, values);
+                const res = await axios.post(`https://ecommerce-backend-xu6o.onrender.com/users/verification/${params.id}`, values);
 
 
                 if (res.data) {

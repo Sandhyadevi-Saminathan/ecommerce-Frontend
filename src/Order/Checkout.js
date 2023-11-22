@@ -20,7 +20,7 @@ function Checkout() {
 
   const fetchUserDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/user/${id}`, {
+      const response = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/user/${id}`, {
         headers: {
             Authorization: `${window.localStorage.getItem("token")}`
         }
@@ -36,7 +36,7 @@ function Checkout() {
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/cart/addtocart/${id}`,{
+      const response = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${id}`,{
         headers: {
             Authorization: `${window.localStorage.getItem("token")}`
         }
@@ -78,7 +78,7 @@ function Checkout() {
         try {
 
             setupdating(true)
-            const user = await axios.post(`http://localhost:8000/orders`, values, {
+            const user = await axios.post(`https://ecommerce-backend-xu6o.onrender.com/orders`, values, {
                 headers: {
                     Authorization: `${window.localStorage.getItem("token")}`
                 }

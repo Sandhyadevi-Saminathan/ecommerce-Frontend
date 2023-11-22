@@ -36,7 +36,7 @@ function Cartlist() {
     useEffect(() => {
       const fetchCartItems = async () => {
         try {
-          const users = await axios.get(`http://localhost:8000/cart/addtocart/${id}`, {
+          const users = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${id}`, {
             headers: {
               Authorization: `${window.localStorage.getItem("token")}`
             }
@@ -99,7 +99,7 @@ function Cartlist() {
     let getcartlist = async () => {
         try {
          
-            const users = await axios.get(`http://localhost:8000/cart/addtocart/${id}`,{
+            const users = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${id}`,{
               headers: {
                   Authorization: `${window.localStorage.getItem("token")}`
               }
@@ -114,7 +114,7 @@ function Cartlist() {
     }
     const removeFromCart = async (productId) => {
         try {
-          await axios.delete(`http://localhost:8000/cart/addtocart/${id}/${productId}`,{
+          await axios.delete(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${id}/${productId}`,{
             headers: {
                 Authorization: `${window.localStorage.getItem("token")}`
             }

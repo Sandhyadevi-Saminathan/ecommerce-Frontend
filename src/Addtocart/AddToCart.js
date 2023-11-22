@@ -13,7 +13,7 @@ const [showLoginAlert, setShowLoginAlert] = useState(false);
   const checkCart = async () => {
     try {
       if (!isLoggedIn) return;
-        const response = await axios.get(`http://localhost:8000/cart/addtocart/${userId}`,{
+        const response = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${userId}`,{
           headers: {
               Authorization: `${window.localStorage.getItem("token")}`
           }
@@ -39,7 +39,7 @@ const [showLoginAlert, setShowLoginAlert] = useState(false);
           
           if (isAddedToCart) {
             // Remove from wishlist
-            await axios.delete(`http://localhost:8000/cart/addtocart/${userId}/${product._id}`,{
+            await axios.delete(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${userId}/${product._id}`,{
               headers: {
                   Authorization: `${window.localStorage.getItem("token")}`
               }
@@ -47,7 +47,7 @@ const [showLoginAlert, setShowLoginAlert] = useState(false);
           setIsAddedToCart(false);
           } else {
             // Add to wishlist
-            let cart = await axios.post('http://localhost:8000/cart/addtocart', { product, userId },{
+            let cart = await axios.post('https://ecommerce-backend-xu6o.onrender.com/cart/addtocart', { product, userId },{
               headers: {
                   Authorization: `${window.localStorage.getItem("token")}`
               }

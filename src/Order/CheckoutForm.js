@@ -14,7 +14,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
     }, [])
     let getuser = async () => {
         try {
-            const user = await axios.get(`http://localhost:8000/users/user/${id}`, {
+            const user = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/users/user/${id}`, {
                 headers: {
                     Authorization: `${window.localStorage.getItem("token")}`
                 }
@@ -72,7 +72,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
                     totalPrice: calculateTotalPrice(), // Total price calculation from the cart
                   };
               
-                  const response = await axios.post(`http://localhost:8000/order/orderlist`, orderData, {
+                  const response = await axios.post(`https://ecommerce-backend-xu6o.onrender.com/order/orderlist`, orderData, {
                     headers: {
                       Authorization: `${window.localStorage.getItem("token")}`
                     }
@@ -81,7 +81,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
                   
               console.log(response)
               if (response.status === 200) {
-                await axios.delete(`http://localhost:8000/cart/addtocart/${id}`,{
+                await axios.delete(`https://ecommerce-backend-xu6o.onrender.com/cart/addtocart/${id}`,{
                   headers: {
                       Authorization: `${window.localStorage.getItem("token")}`
                   }

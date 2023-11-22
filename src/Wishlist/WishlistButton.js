@@ -15,7 +15,7 @@ function WishlistButton({ product, userId, isLoggedIn }) {
    
     const checkWishlist = async () => {
       try {
-       const response = await axios.get(`http://localhost:8000/wishlist/wishlist/${userId}`,{
+       const response = await axios.get(`https://ecommerce-backend-xu6o.onrender.com/wishlist/wishlist/${userId}`,{
         headers: {
             Authorization: `${window.localStorage.getItem("token")}`
         }
@@ -46,7 +46,7 @@ function WishlistButton({ product, userId, isLoggedIn }) {
       
       if (isInWishlist) {
         // Remove from wishlist
-        await axios.delete(`http://localhost:8000/wishlist/wishlist/${userId}/${product._id}`,{
+        await axios.delete(`https://ecommerce-backend-xu6o.onrender.com/wishlist/wishlist/${userId}/${product._id}`,{
           headers: {
               Authorization: `${window.localStorage.getItem("token")}`
           }
@@ -56,7 +56,7 @@ function WishlistButton({ product, userId, isLoggedIn }) {
         setTimeout(() => setShowMessage(false), 3000);
       } else {
         // Add to wishlist
-        let wishlists = await axios.post('http://localhost:8000/wishlist/wishlist', { product, userId },{
+        let wishlists = await axios.post('https://ecommerce-backend-xu6o.onrender.com/wishlist/wishlist', { product, userId },{
           headers: {
               Authorization: `${window.localStorage.getItem("token")}`
           }

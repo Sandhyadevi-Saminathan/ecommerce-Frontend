@@ -29,7 +29,7 @@ const checkUserLogin = () => {
 
 let fetchUsers = async () => {
     try {
-        let userData = await axios.get(" http://localhost:8000/products/furniture")
+        let userData = await axios.get(" https://ecommerce-backend-xu6o.onrender.com/products/furniture")
         console.log(userData.data);
         setProducts(userData.data)
         setFilteredProducts(userData.data);
