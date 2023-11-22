@@ -100,7 +100,7 @@ function Topbar({ toggleSidebar, showSidebar }) {
     setShowPopup(false);
   };
   return (
-    <nav className="navbar navbar-expand navbar-light fixed-top bg-primary topbar mb-4 static-top shadow">
+    <nav className="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow">
       <button className="btn btn-link" onClick={toggleSidebar} style={buttonStyle}>
         {showSidebar ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
       </button>
