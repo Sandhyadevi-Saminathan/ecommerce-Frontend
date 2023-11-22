@@ -16,7 +16,7 @@ function Profile() {
     }, [])
     let fetchUsers = async () => {
         try {
-            let userData = await axios.get(`http://localhost:8000/user/${id}`, {
+            let userData = await axios.get(`http://localhost:8000/users/user/${id}`, {
                 headers: {
                     Authorization: `${window.localStorage.getItem("token")}`
                 }

@@ -72,7 +72,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
                     totalPrice: calculateTotalPrice(), // Total price calculation from the cart
                   };
               
-                  const response = await axios.post(`http://localhost:8000/orderlist`, orderData, {
+                  const response = await axios.post(`http://localhost:8000/order/orderlist`, orderData, {
                     headers: {
                       Authorization: `${window.localStorage.getItem("token")}`
                     }
@@ -81,7 +81,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
                   
               console.log(response)
               if (response.status === 200) {
-                await axios.delete(`http://localhost:8000/addtocart/${id}`,{
+                await axios.delete(`http://localhost:8000/cart/addtocart/${id}`,{
                   headers: {
                       Authorization: `${window.localStorage.getItem("token")}`
                   }

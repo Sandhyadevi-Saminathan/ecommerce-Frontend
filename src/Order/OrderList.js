@@ -9,7 +9,7 @@ function OrderList({ }) {
     useEffect(() => {
         const fetchOrderDetails = async () => {
           try {
-            const response = await axios.get(`http://localhost:8000/orderlist/${userId}`, {
+            const response = await axios.get(`http://localhost:8000/order/orderlist/${userId}`, {
               headers: {
                 Authorization: `${window.localStorage.getItem('token')}`,
               },

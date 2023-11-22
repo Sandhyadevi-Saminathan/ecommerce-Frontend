@@ -36,7 +36,7 @@ function Checkout() {
 
   const fetchCartItems = async () => {
     try {
-      const response = await axios.get(`http://localhost:8000/addtocart/${id}`,{
+      const response = await axios.get(`http://localhost:8000/cart/addtocart/${id}`,{
         headers: {
             Authorization: `${window.localStorage.getItem("token")}`
         }

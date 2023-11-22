@@ -33,7 +33,7 @@ function Wishlist() {
    
     const moveItemToCart = async (product) => {
       try {
-        const response = await axios.get(`http://localhost:8000/addtocart/${id}`,{
+        const response = await axios.get(`http://localhost:8000/cart/addtocart/${id}`,{
           headers: {
               Authorization: `${window.localStorage.getItem("token")}`
           }
@@ -44,7 +44,7 @@ function Wishlist() {
         setShowAlert(true)
         } else {
         const response = await axios.post(
-          'http://localhost:8000/addtocart',
+          'http://localhost:8000/cart/addtocart',
           { product, userId: id }, 
           {
             headers: {
@@ -56,7 +56,7 @@ function Wishlist() {
     
         // Remove the item from the wishlist if it was successfully added to the cart
         if (response.status === 200) {
-          await axios.delete(`http://localhost:8000/wishlist/${id}/${product._id}`,{
+          await axios.delete(`http://localhost:8000/wishlist/wishlist/${id}/${product._id}`,{
             headers: {
                 Authorization: `${window.localStorage.getItem("token")}`
             }
@@ -73,7 +73,7 @@ function Wishlist() {
     
     let getwishlists = async () => {
         try {
-            const users = await axios.get(`http://localhost:8000/wishlist/${id}`,{
+            const users = await axios.get(`http://localhost:8000/wishlist/wishlist/${id}`,{
                 headers: {
                     Authorization: `${window.localStorage.getItem("token")}`
                 }
@@ -89,7 +89,7 @@ function Wishlist() {
     }
     const removeFromWishlist = async (productId) => {
         try {
-          await axios.delete(`http://localhost:8000/wishlist/${id}/${productId}`,{
+          await axios.delete(`http://localhost:8000/wishlist/wishlist/${id}/${productId}`,{
             headers: {
                 Authorization: `${window.localStorage.getItem("token")}`
             }

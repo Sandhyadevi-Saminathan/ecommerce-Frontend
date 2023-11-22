@@ -62,7 +62,7 @@ const checkUserLogin = () => {
 
 let fetchUsers = async () => {
     try {
-        let userData = await axios.get(" http://localhost:8000/general-products")
+        let userData = await axios.get(" http://localhost:8000/products/general-products")
         console.log(userData.data);
         setProducts(userData.data)
         setFilteredProducts(userData.data);
