@@ -36,21 +36,21 @@ function App() {
           <Route path="sidebar" element={<Sidebar />} />
           <Route path="topbar" element={<Topbar />} />
           <Route index element={<Home />} />
-          <Route path = 'grocery' element={<Grocery/>} />
-          <Route path = 'mobiles' element={<Mobiles/>} />
-          <Route path = 'fashion' element={<Fashion/>} />
-          <Route path = 'electronics' element={<Electronics/>} />
-          <Route path = 'furniture' element={<Furniture/>} />
-          <Route path = 'wishlist' element={<Wishlist/>} />
-          <Route path = 'cart' element={<Cartlist/>} />
-          <Route path = 'profile' element={<Profile/>} />
-          <Route path = 'orderlist' element={<OrderList/>} />
+          <Route path = 'products/grocery' element={<Grocery/>} />
+          <Route path = 'products/mobiles' element={<Mobiles/>} />
+          <Route path = 'products/fashion' element={<Fashion/>} />
+          <Route path = 'products/electronics' element={<Electronics/>} />
+          <Route path = 'products/furniture' element={<Furniture/>} />
+          <Route path = 'wishlist/wishlist' element={<Wishlist/>} />
+          <Route path = 'cart/cart' element={<Cartlist/>} />
+          <Route path = 'users/profile' element={<Profile/>} />
+          <Route path = 'order/orderlist' element={<OrderList/>} />
 
           </Route>
           <Route path = '/cart/checkout' element={<Checkout/>} />
-          <Route path="/forget" element={<Forget/>} />
-          <Route path="/verification/:id" element={<Verification/>} />
-          <Route path="/Changepassword/:id" element={<Changepassword/>} />
+          <Route path="users/forget" element={<Forget/>} />
+          <Route path="users/verification/:id" element={<Verification/>} />
+          <Route path="users/Changepassword/:id" element={<Changepassword/>} />
         </Routes>
     
 
