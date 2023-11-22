@@ -79,10 +79,10 @@ function Login() {
                                                 <button type='submit' className='btn btn-primary rounded col-sm-5 justify-content-center text-center'>Log in</button>
                                             </div>
                                             <div className='form-group col-lg-12 text-center'><p className='text-center'>Don't have account?</p>
-                                                <Link to={'/register'}> <button type='button' className='btn btn-primary rounded col-sm-5 justify-content-center text-center'>Sign Up</button></Link>
+                                                <Link to={'/users/register'}> <button type='button' className='btn btn-primary rounded col-sm-5 justify-content-center text-center'>Sign Up</button></Link>
                                             </div>
                                             <p className='forgot-password text-end mt-2'>
-                                                <Link to={'/Forget'}>Forgot Password?</Link>
+                                                <Link to={'/users/Forget'}>Forgot Password?</Link>
                                             </p>
                                         </form>
       </div>

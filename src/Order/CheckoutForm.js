@@ -89,7 +89,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
             }
               
                   alert("Order placed successfully!");
-                  navigate(`/orderlist`);
+                  navigate(`/order/orderlist`);
                   
                 } catch (error) {
                 console.log(error)
@@ -172,7 +172,7 @@ function CheckoutForm({ cartItems, calculateTotalPrice,quantities}) {
                                 className='btn btn-primary' />
   
 
-  <Link to="/cart">   <button 
+  <Link to="/cart/cart">   <button 
         className='btn btn-primary' onClick={() => window.location.reload()}>Back to cart</button>
   </Link>
 

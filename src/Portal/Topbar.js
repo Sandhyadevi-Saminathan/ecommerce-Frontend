@@ -64,7 +64,7 @@ function Topbar({ toggleSidebar, showSidebar }) {
   const handleCartClick = () => {
     const isLoggedIn = checkLoginStatus();
     if (isLoggedIn) {
-      navigates("/cart")
+      navigates("/cart/cart")
      
     } else {
       setShowLoginAlert(true); 
@@ -76,7 +76,7 @@ function Topbar({ toggleSidebar, showSidebar }) {
     const isLoggedIn = checkLoginStatus();
     if (isLoggedIn) {
       console.log("hi")
-     navigates("/wishlist")
+     navigates("/wishlist/wishlist")
   
      
     } else {
@@ -144,10 +144,10 @@ function Topbar({ toggleSidebar, showSidebar }) {
               {isLoggedIn ? (
                 // If logged in, show profile-related options
                 <>
-                  <Link to="/profile" className="dropdown-item" >
+                  <Link to="/users/profile" className="dropdown-item" >
                     My Profile
                   </Link>
-                  <Link to="/orderlist" className="dropdown-item">
+                  <Link to="/order/orderlist" className="dropdown-item">
                     My order
                   </Link>
                
@@ -157,7 +157,7 @@ function Topbar({ toggleSidebar, showSidebar }) {
                 </>
               ) : (
                 // If not logged in, show login option
-                <Link to="/login" className="dropdown-item">
+                <Link to="/users/login" className="dropdown-item">
                   Login/Register
                 </Link>
               )}

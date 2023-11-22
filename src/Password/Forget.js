@@ -18,7 +18,7 @@ function Forget() {
                 window.localStorage.setItem("my_token", userData.data.token);
                 if (!userData == "") {
                     alert("Check Your Mailbox");
-                    navigate(`/Verification/${userData.data._id}`);
+                    navigate(`/users/Verification/${userData.data._id}`);
                 }
 
             }

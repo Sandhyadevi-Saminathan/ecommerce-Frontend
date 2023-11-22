@@ -47,7 +47,7 @@ function Register() {
                 window.localStorage.setItem("my_token", userData.data.token);
                 alert("Registered Successfully");
                 formik.resetForm();
-                navigate("/login");
+                navigate("/users/login");
             } catch (error) {
 
                 console.log(error);
@@ -117,7 +117,7 @@ function Register() {
                             <div className='form-group col-lg-12 text-center' >
                                 <button type='submit' className='btn btn-primary rounded col-lg-5 mt-2'>Submit</button> <br/>
 
-                                <NavLink to={'/'}> <button type='button' className='btn btn-primary rounded col-lg-5 mt-2'>Login</button></NavLink>
+                                <NavLink to={'/users/login'}> <button type='button' className='btn btn-primary rounded col-lg-5 mt-2'>Login</button></NavLink>
 
                             </div>
                         </form>

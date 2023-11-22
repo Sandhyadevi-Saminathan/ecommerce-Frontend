@@ -40,7 +40,7 @@ function Sidebar() {
                 </li>
                 {/* <!-- Nav Item - Dashboard --> */}
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/grocery" onClick={() => {
+                    <Link className="nav-link" to="/products/grocery" onClick={() => {
                        
                     }}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>
@@ -48,14 +48,14 @@ function Sidebar() {
                 </li>
 
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/mobiles" onClick={() => {
+                    <Link className="nav-link" to="/products/mobiles" onClick={() => {
                       
                     }}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>
                         <span style={{ fontSize: "17px" }}>Mobiles</span></Link>
                 </li>
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/fashion" onClick={() => {
+                    <Link className="nav-link" to="/products/fashion" onClick={() => {
                        
                     }}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>
@@ -63,7 +63,7 @@ function Sidebar() {
 
                 </li>
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/electronics" onClick={() => {
+                    <Link className="nav-link" to="/products/electronics" onClick={() => {
                      
                     }}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>
@@ -71,7 +71,7 @@ function Sidebar() {
 
                 </li>
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/furniture" onClick={() => {
+                    <Link className="nav-link" to="/products/furniture" onClick={() => {
                         
                     }}>
                         <i className="fas fa-fw fa-tachometer-alt"></i>

@@ -28,7 +28,7 @@ function Verification() {
 
                 if (res.data) {
                     alert("Verified");
-                    navigate(`/Changepassword/${params.id}`);
+                    navigate(`/users/Changepassword/${params.id}`);
                 }
                 else {
                     alert(res.data.message);

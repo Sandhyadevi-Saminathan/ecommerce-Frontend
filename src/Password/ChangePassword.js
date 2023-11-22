@@ -36,7 +36,7 @@ function Changepassword() {
                     const user = await axios.post(`https://ecommerce-backend-xu6o.onrender.com/users/ChangePassword/${params.id}`, values);
                     console.log(user)
                     alert(user.data.message);
-                    navigate('/login')
+                    navigate('/users/login')
                 } catch (error) {
                     console.log(error);
                 }
