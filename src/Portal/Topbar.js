@@ -100,12 +100,15 @@ function Topbar({ toggleSidebar, showSidebar }) {
     setShowPopup(false);
   };
   return (
-    <nav className="navbar navbar-expand navbar-light bg-primary topbar mb-4 static-top shadow">
+    <nav className="navbar navbar-expand navbar-light fixed-top bg-primary topbar mb-4 static-top shadow">
       <button className="btn btn-link" onClick={toggleSidebar} style={buttonStyle}>
         {showSidebar ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
       </button>
-      <ul className="navbar-nav ml-auto">
      
+      <ul className="navbar-nav ml-auto">
+      <li className="nav-link mr-5 mt-2">
+        <h1 style={{fontFamily:"cursive",fontSize:"30px",color:"white"}}>ShopSphere</h1>
+        </li>
         <li className="nav-item">
           <button className="nav-link"  onClick={handleWishlistClick}>
             <FontAwesomeIcon icon={faHeart} />
