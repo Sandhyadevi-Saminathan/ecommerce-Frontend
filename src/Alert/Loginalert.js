@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import './Loginalert.css';
+import "../Css/Loginalert.css"
 
 const LoginAlert = ({ showLoginAlert, closeAlert }) => {
     useEffect(() => {
         if (showLoginAlert) {
           const timeout = setTimeout(() => {
             closeAlert();
-          }, 4000); // Adjust the duration (in milliseconds) as needed
+          }, 4000); 
     
           return () => clearTimeout(timeout);
         }

@@ -3600,9 +3600,9 @@ input[type=submit].btn-block {
 
 .dropdown-item:focus,
 .dropdown-item:hover {
-  color: #2e2f37;
+  /* color: #2e2f37; */
   text-decoration: none;
-  background-color: #eaecf4
+  background-color:turquoise
 }
 
 .dropdown-item.active,
@@ -11503,7 +11503,7 @@ a:focus {
 }
 
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
-  color: #b7b9cc
+  color:tomato;
 }
 
 .topbar.navbar-light .navbar-nav .nav-item .nav-link:active {

@@ -1,0 +1,22 @@
+.checkout-container {
+    display: flex;
+  }
+  
+  .cart-items {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Additional styling for the cart items container */
+  }
+  
+  .shipping-details {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Additional styling for the shipping details container */
+  }
+  

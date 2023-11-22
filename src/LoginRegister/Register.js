@@ -47,7 +47,7 @@ function Register() {
                 window.localStorage.setItem("my_token", userData.data.token);
                 alert("Registered Successfully");
                 formik.resetForm();
-                navigate("/");
+                navigate("/login");
             } catch (error) {
 
                 console.log(error);

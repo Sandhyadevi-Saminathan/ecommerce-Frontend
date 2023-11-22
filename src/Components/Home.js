@@ -1,61 +1,35 @@
 
-import './Home.css';
+import '../Css/Home.css';
 import axios from 'axios';
-import LoginAlert from './Loginalert';
 import React, { useEffect, useState } from 'react';
-import Searchbox from './Searchbox';
-import Filter from './Filter';
+import Searchbox from '../SearchFilter/Searchbox';
+import Filter from '../SearchFilter/Filter';
+import WishlistButton from '../Wishlist/WishlistButton';
+import AddToCart from '../Addtocart/AddToCart';
 
-function Grocery() {
+function Home() {
   const [products, setProducts] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLoginAlert, setShowLoginAlert] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
-
+  const [loading, setLoading] = useState(false);
+  const [popupMessage, setPopupMessage] = useState('');
+  
   const id = localStorage.getItem('ID');
   useEffect(() => {
     fetchUsers()
     checkUserLogin();
+    setLoading(true)
 }, [])
+const closePopup = () => {
+  setPopupMessage('');
+};
+
 const checkUserLogin = () => {
     const token = window.localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Set isLoggedIn to true if the token exists
+    setIsLoggedIn(!!token); 
     console.log(isLoggedIn)
   };
- 
-
-let fetchUsers = async () => {
-    try {
-        let userData = await axios.get(" http://localhost:8000/grocery")
-        console.log(userData.data);
-        setProducts(userData.data)
-        setFilteredProducts(userData.data);
-        setLoading(false);
-        
-    } catch (error) {
-        console.log('error')
-    }
-}
-const handleSearch = (query) => {
-    setSearchQuery(query);
-    const filtered = products.filter((product) =>
-      product.name.toLowerCase().includes(query.toLowerCase())
-    );
-    setFilteredProducts(filtered);
-  };
-
-const handleAddToCart = (productId) => {
-    if (!isLoggedIn) {
-        setShowLoginAlert(true);
-        return;
-      }
-    // Implement logic to add the product to the cart
-    console.log(isLoggedIn)
-    console.log(`Added product with ID ${productId} to cart.`);
-  };
-
   const handleFilter = (filterType) => {
     console.log(filterType);
     let filtered = [...products];
@@ -85,17 +59,27 @@ const handleAddToCart = (productId) => {
     return parseFloat(price.replace(/[^0-9.]/g, ''));
   };
 
-  const handleAddToWishlist = (productId) => {
-    if (!isLoggedIn) {
-        setShowLoginAlert(true);
-        return;
+
+let fetchUsers = async () => {
+    try {
+        let userData = await axios.get(" http://localhost:8000/general-products")
+        console.log(userData.data);
+        setProducts(userData.data)
+        setFilteredProducts(userData.data);
+        setLoading(false);
+        
+    } catch (error) {
+        console.log('error')
     }
-    // Implement logic to add the product to the wishlist
-    console.log(`Added product with ID ${productId} to wishlist.`);
+}
+const handleSearch = (query) => {
+    setSearchQuery(query);
+    const filtered = products.filter((product) =>
+      product.name.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
   };
-  const closeAlert = () => {
-    setShowLoginAlert(false);
-  };
+
 
   return (
    
@@ -123,8 +107,17 @@ const handleAddToCart = (productId) => {
                 <p className="card-text" >{product.description}</p>
                 <p className="card-text-price" >Price: {product.price}</p>
                 <div className="d-flex justify-content-between align-items-center mt-3">
-  <button className="btn btn-outline-success mx-3 mt-2" style={{fontSize:"16px",color:"black"}} onClick={() => handleAddToCart(product._id)}>Add to Cart</button>
-  <button className="btn btn-outline-secondary mx-3 mt-2" style={{fontSize:"17px",color:"black"}} onClick={() => handleAddToWishlist(product._id)}>Add to Wishlist</button>
+  
+  <WishlistButton 
+                  product={product} 
+                  userId={localStorage.getItem('id')} 
+                  isLoggedIn={isLoggedIn} 
+                />
+                <AddToCart 
+                product={product}
+                userId={localStorage.getItem('id')}
+                isLoggedIn={isLoggedIn}
+              />
 </div>
 
               </div>
@@ -135,7 +128,7 @@ const handleAddToCart = (productId) => {
           ))}
         </div>
       )}
-         <LoginAlert showLoginAlert={showLoginAlert} closeAlert={closeAlert} />
+         
       </div>
      
     </div>
@@ -144,4 +137,4 @@ const handleAddToCart = (productId) => {
   );
 }
 
-export default Grocery;
+export default Home;

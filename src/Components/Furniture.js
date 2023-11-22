@@ -1,27 +1,28 @@
 
-import './Home.css';
+import '../Css/Home.css';
 import axios from 'axios';
-import LoginAlert from './Loginalert';
+import WishlistButton from '../Wishlist/WishlistButton';
+import AddToCart from '../Addtocart/AddToCart';
 import React, { useEffect, useState } from 'react';
-import Searchbox from './Searchbox';
-import Filter from './Filter';
+import Searchbox from '../SearchFilter/Searchbox';
+import Filter from '../SearchFilter/Filter';
 
 function Furniture() {
   const [products, setProducts] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLoginAlert, setShowLoginAlert] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const id = localStorage.getItem('ID');
   useEffect(() => {
     fetchUsers()
     checkUserLogin();
+    setLoading(true)
 }, [])
 const checkUserLogin = () => {
     const token = window.localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Set isLoggedIn to true if the token exists
+    setIsLoggedIn(!!token); 
     console.log(isLoggedIn)
   };
  
@@ -46,27 +47,10 @@ const handleSearch = (query) => {
     setFilteredProducts(filtered);
   };
 
-const handleAddToCart = (productId) => {
-    if (!isLoggedIn) {
-        setShowLoginAlert(true);
-        return;
-      }
-    // Implement logic to add the product to the cart
-    console.log(isLoggedIn)
-    console.log(`Added product with ID ${productId} to cart.`);
-  };
 
-  const handleAddToWishlist = (productId) => {
-    if (!isLoggedIn) {
-        setShowLoginAlert(true);
-        return;
-    }
-    // Implement logic to add the product to the wishlist
-    console.log(`Added product with ID ${productId} to wishlist.`);
-  };
-  const closeAlert = () => {
-    setShowLoginAlert(false);
-  };
+
+  
+  
   const handleFilter = (filterType) => {
     console.log(filterType);
     let filtered = [...products];
@@ -122,8 +106,19 @@ const handleAddToCart = (productId) => {
                 <p className="card-text" >{product.description}</p>
                 <p className="card-text-price" >Price: {product.price}</p>
                 <div className="d-flex justify-content-between align-items-center mt-3">
-  <button className="btn btn-outline-success mx-3 mt-2" style={{fontSize:"16px",color:"black"}} onClick={() => handleAddToCart(product._id)}>Add to Cart</button>
-  <button className="btn btn-outline-secondary mx-3 mt-2" style={{fontSize:"17px",color:"black"}} onClick={() => handleAddToWishlist(product._id)}>Add to Wishlist</button>
+                <div className="d-flex justify-content-between align-items-center mt-3">
+  
+  <WishlistButton 
+                  product={product} 
+                  userId={localStorage.getItem('id')} 
+                  isLoggedIn={isLoggedIn} 
+                />
+                <AddToCart 
+                product={product}
+                userId={localStorage.getItem('id')}
+                isLoggedIn={isLoggedIn}
+              />
+</div>
 </div>
 
               </div>
@@ -134,7 +129,7 @@ const handleAddToCart = (productId) => {
           ))}
         </div>
       )}
-         <LoginAlert showLoginAlert={showLoginAlert} closeAlert={closeAlert} />
+        
       </div>
      
     </div>

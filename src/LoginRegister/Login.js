@@ -28,10 +28,11 @@ function Login() {
                 let userData = await axios.post('http://localhost:8000/login', values);
                 console.log(userData.data.user._id)
                 window.localStorage.setItem("token", userData.data.token);
+                window.localStorage.setItem("id", userData.data.user._id);
                 alert("Login Succes");
                 const ids = userData.data.user._id;
                 console.log(ids)
-                navigate(`/portal/profile/${ids}`)
+                navigate(`/`)
             } catch (error) {
                 alert('invalid user/password')
                 console.error(error);
@@ -42,30 +43,20 @@ function Login() {
     })
 
     return (
-        <div className="container"   style={{ width: 1120 }}>
-
-            {/* <!-- Outer Row --> */}
-            <div className="row justify-content-center">
-
-                <div className="col-xl-10 col-lg-12 col-md-9">
-
-                    <div className="card o-hidden border-0 shadow-lg my-5">
-                        <div className="card-body p-0">
-                            {/* <!-- Nested Row within Card Body --> */}
-                            <div className="row">
-
-                                <img src='https://blog.hubspot.com/hubfs/ecommerce-10.jpg'
-                                    style={{ width: 450 }} alt="" />
-
-
-                                <div className="col-lg-6">
-                                    <div className="p-5">
-                                        <div className="text-center">
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+        <div class="card mb-3" style={{maxWidth: "1000px",width:"800px", height:"450px"}}>
+  <div class="row g-0">
+    <div class="col-md-6">
+      <img src="https://blog.hubspot.com/hubfs/ecommerce-10.jpg" class="img-fluid rounded-start" alt="..." style={{height:"450px",width:"800px"}}/>
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+      <div className="text-center">
                                             <h1 className="h4 text-gray-900 mb-4">Welcome!</h1>
                                         </div>
                                         <form onSubmit={formik.handleSubmit}>
                                             <div className='form-group col-lg-12'>
-                                                <label style={{ fontSize: "18px", fontFamily: "cursive" }}>User Name</label>
+                                                <label>User Name</label>
                                                 <input className={`form-control ${formik.errors.email ? "is-invalid" : ""} `}
                                                     name='email'
                                                     type="email"
@@ -75,7 +66,7 @@ function Login() {
                                                 <span style={{ color: "red" }}>{formik.errors.email}</span>
                                             </div>
                                             <div className='form-group col-lg-12'>
-                                                <label style={{ fontSize: "18px", fontFamily: "cursive" }}>Password</label>
+                                                <label>Password</label>
                                                 <input className={`form-control ${formik.errors.password ? "is-invalid" : ""} `}
                                                     name='password'
                                                     onChange={formik.handleChange}
@@ -94,19 +85,12 @@ function Login() {
                                                 <Link to={'/Forget'}>Forgot Password?</Link>
                                             </p>
                                         </form>
-                                 
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+        
     )
 }
 

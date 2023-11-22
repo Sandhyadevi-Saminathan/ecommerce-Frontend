@@ -1,10 +1,10 @@
-// SearchBox.js
+
 
 import React from 'react';
 
 const Searchbox = ({ handleSearch }) => {
   const handleInputChange = (e) => {
-    // Pass the search query to the parent component
+   
     handleSearch(e.target.value);
   };
 
@@ -14,6 +14,7 @@ const Searchbox = ({ handleSearch }) => {
       placeholder="Search..."
       onChange={handleInputChange}
       className="form-control"
+      style={{width:"500px"}}
     />
   );
 };
